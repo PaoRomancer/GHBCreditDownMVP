@@ -9,12 +9,12 @@
 ## 💻 วิธีการเข้า Credit Down ใน Mobile Phone
 ### กดที่ขีดสามขีดทางซ้ายมือ
 <p align="center">
-  <img src="image/1.png" alt="header">
+  <img src="image/2.jpg" alt="header">
 </p>
 
 ### เลือก Credit Down
 <p align="center">
-  <img src="image/1.png" alt="header">
+  <img src="image/3.jpg" alt="header">
 </p>
 
 ## 👥 Members
