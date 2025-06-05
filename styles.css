@@ -452,11 +452,30 @@
             margin: 10px 0;
         }
         .property-img-rounded {
-            width: 360px;
-            height: 220px;
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            aspect-ratio: 16/10;
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.10);
             border: 3px solid #f1f5f9;
             background: #fff;
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .property-img-rounded {
+                max-width: 95vw;
+                min-width: 120px;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16/10;
+                margin-bottom: 1rem;
+            }
+            .property-content {
+                padding: 1rem 0.5rem;
+            }
+            .property-price {
+                font-size: 1.2rem;
+            }
         }

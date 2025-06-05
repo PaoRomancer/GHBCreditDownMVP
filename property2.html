@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดทรัพย์</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <style>
+        .property-detail-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 7rem auto 3rem auto; /* เพิ่ม margin-top ให้มากขึ้น */
+            max-width: 1000px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+        .property-slider {
+            flex: 1 1 350px;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slider-img {
+            width: 350px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            margin-bottom: 1rem;
+        }
+        .slider-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .slider-controls button {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .slider-controls button:hover {
+            background: #b91c1c;
+        }
+        .property-info {
+            flex: 1 1 300px;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1.2rem;
+        }
+        .property-info h2 {
+            margin-bottom: 0.5rem;
+        }
+        .property-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .property-info-list li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .property-extra-detail {
+            margin-top: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            color: #333;
+            font-size: 1.05rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+        .property-extra-detail h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #dc2626;
+        }
+        .property-extra-detail ul {
+            margin: 0;
+            padding-left: 1.2em;
+        }
+        .property-extra-detail li {
+            margin-bottom: 0.3em;
+        }
+        @media (max-width: 900px) {
+            .property-detail-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .property-slider, .property-info {
+                width: 100%;
+                min-width: unset;
+            }
+            .slider-img {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-img">GHB<br>Credit<br>Down</div>
+            </div>
+            <a href="Creditdownhome.html" class="login-btn">&larr; กลับหน้าหลัก</a>
+        </nav>
+    </header>
+    <main>
+        <div class="property-detail-container">
+            <div class="property-slider">
+                <img id="slider-img" class="slider-img" src="image/Train.png" alt="บ้านตัวอย่าง">
+                <div class="slider-controls">
+                    <button onclick="prevImage()">&#8592;</button>
+                    <button onclick="nextImage()">&#8594;</button>
+                </div>
+            </div>
+            <div class="property-info">
+                <h2>ขายคอนโด (ตึกวิศวะ เทคโนลาดกระบัง)</h2>
+                <ul class="property-info-list">
+                    <li><strong>ประเภท:</strong> คอนโดมิเนียม</li>
+                    <li><strong>รหัสทรัพย์:</strong> 1047100281</li>
+                    <li><strong>โครงการ:</strong> ตึกวิศวะ เทคโนลาดกระบัง</li>
+                    <li><strong>ที่ตั้ง:</strong> เขตลาดกระบัง กรุงเทพมหานคร</li>
+                    <li><strong>ขนาด:</strong> 30.93 ตร.ม.</li>
+                    <li><strong>ราคา:</strong> 2,450,000 บาท</li>
+                </ul>
+                <button class="login-btn" style="width:fit-content;" onclick="window.location.href='maimetang.html'">เช่าทรัพย์ ✅</button>
+                <div class="property-extra-detail">
+                    <h3>รายละเอียด ค่าเช่าและการคิดแต้ม</h3>
+                    <ul>
+                        <li>1 เดือน 8,000 บาท ได้แต้ม 1 Point</li>
+                        <li>Point สามารถแลกบ้านได้...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const images = [
+            'image/Train.png',
+            'image/12.jpg',
+            'image/ECC.png'
+        ];
+        let current = 0;
+        const sliderImg = document.getElementById('slider-img');
+        function showImage(idx) {
+            current = (idx + images.length) % images.length;
+            sliderImg.src = images[current];
+        }
+        function prevImage() { showImage(current - 1); }
+        function nextImage() { showImage(current + 1); }
+    </script>
+</body>
+</html>
