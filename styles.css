@@ -489,3 +489,91 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* FAQ Styles */
+        .faq-item {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #dc2626;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+        .faq-toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.2s;
+        }
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            display: none;
+            padding: 0 1rem 1rem 1rem;
+            color: #333;
+            font-size: 1rem;
+            animation: fadeIn 0.3s;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            background: #f8fafc;
+            padding: 2.5rem 0;
+        }
+
+        .contact-info-row {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .contact-info {
+            flex: 1 1 260px;
+            min-width: 220px;
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 2;
+        }
+        .contact-map {
+            flex: 1 1 320px;
+            min-width: 260px;
+            max-width: 480px;
+        }
+        @media (max-width: 900px) {
+            .contact-info-row {
+                flex-direction: column;
+            }
+            .contact-map {
+                margin-top: 1.5rem;
+                max-width: 100%;
+            }
+        }
+
+        .contact-info a {
+            color: #dc2626;
+            text-decoration: underline;
+        }

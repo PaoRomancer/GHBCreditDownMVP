@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>ยืนยันการเช่าทรัพย์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Noto Sans Thai', sans-serif;
+            background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            min-height: 80vh;
+        }
+        .checkmark {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #22c55e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+        }
+        .checkmark svg {
+            width: 60px;
+            height: 60px;
+            stroke: #fff;
+            stroke-width: 6;
+            fill: none;
+        }
+        .success-message {
+            font-size: 1.5rem;
+            color: #22c55e;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .desc {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .back-btn {
+            background: #dc2626;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            background: #b91c1c;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="success-container">
+        <div class="checkmark">
+            <svg viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="none"/>
+                <path d="M14 27l7 7 17-17"/>
+            </svg>
+        </div>
+        <div class="success-message">ยืนยันการเช่าทรัพย์สำเร็จ!</div>
+        <div class="desc">ขอบคุณที่ใช้บริการ กรุณารอเจ้าหน้าที่ติดต่อกลับเพื่อดำเนินการขั้นตอนถัดไป</div>
+        <a href="Creditdownhome.html" class="back-btn">กลับหน้าหลัก</a>
+    </div>
+</body>
+</html>
