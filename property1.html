@@ -78,13 +78,17 @@
             font-size: 1.1rem;
         }
         .property-extra-detail {
-            margin-top: 1.5rem;
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 1rem 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem; /* เพิ่มบรรทัดนี้ */
+            background: #fff;
+            border-radius: 20px;
+            padding: 2rem;
             color: #333;
             font-size: 1.05rem;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .property-extra-detail h3 {
             font-size: 1.15rem;
@@ -126,35 +130,107 @@
     <main>
         <div class="property-detail-container">
             <div class="property-slider">
-                <img id="slider-img" class="slider-img" src="image/12.jpg" alt="บ้านตัวอย่าง">
+                <img id="slider-img" class="slider-img" src="image/Home1-1.jpg" alt="บ้านตัวอย่าง">
                 <div class="slider-controls">
                     <button onclick="prevImage()">&#8592;</button>
                     <button onclick="nextImage()">&#8594;</button>
                 </div>
             </div>
             <div class="property-info">
-                <h2>เช่าคอนโด (ตึกวิศวะ เทคโนลาดกระบัง)</h2>
+                <h2>เช่าบ้านเดี่ยว (ทุ่งครุ)</h2>
                 <ul class="property-info-list">
-                    <li><strong>ประเภท:</strong> คอนโดมิเนียม</li>
-                    <li><strong>รหัสทรัพย์:</strong> 1047100281</li>
-                    <li><strong>โครงการ:</strong> ตึกวิศวะ เทคโนลาดกระบัง</li>
-                    <li><strong>ที่ตั้ง:</strong> เขตลาดกระบัง กรุงเทพมหานคร</li>
-                    <li><strong>ขนาด:</strong> 30.93 ตร.ม.</li>
-                    <li><strong>ราคา:</strong> 1,000 บาท/เดือน</li>
+                    <li><strong>ประเภท:</strong> บ้านเดี่ยว</li>
+                    <li><strong>รหัสทรัพย์:</strong> 1024102421</li>
+                    <li><strong>โครงการ:</strong> เช่าบ้านเดี่ยว (ทุ่งครุ)</li>
+                    <li><strong>ที่ตั้ง:</strong> เขตทุ่งครุ แขวงราษฎร์บูรณะ จังหวัดกรุงเทพมหานคร</li>
+                    <li><strong>ขนาด:</strong> 45 ตร.ว.</li>
+                    <li><strong>ราคา:</strong> 28,359.17 บาท/เดือน</li>
                 </ul>
-                <button class="login-btn" style="width:fit-content;" onclick="window.location.href='maimetang.html'">เช่าทรัพย์ ✅</button>
-                <div class="property-extra-detail">
-                    <h3>รายละเอียด ค่าเช่าและการคิดแต้ม</h3>
-                    <ul>
-                        <li>1 เดือน 8,000 บาท ได้แต้ม 1 Point</li>
-                        <li>Point สามารถแลกบ้านได้...</li>
-                    </ul>
+                <a href="#more-package" style="color:#dc2626; text-decoration:underline; font-size:1.15rem; font-weight:bold; display:inline-block; margin-bottom:0.5rem;">
+                    แพ็กเกจแถมฟรี: ทำบุญขึ้นบ้านใหม่
+                </a>
+                <div class="package-options">
+                    <label>
+                        <input type="radio" name="package" value="standard" checked>
+                        <span>สนใจ</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="package" value="premium">
+                        <span>ไม่สนใจ</span>
+                    </label>
                 </div>
+                <!-- ปุ่มเช่าทรัพย์แยกออกมาอยู่ล่างสุด -->
+                <button class="login-btn" style="width:fit-content; margin-top:1rem;" onclick="window.location.href='maimetang.html'">เช่าทรัพย์</button>
             </div>
+        </div> <!-- ปิด .property-detail-container -->
+
+        <!-- Modal สำหรับซูมรูปภาพ -->
+        <div id="img-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); justify-content:center; align-items:center;">
+            <span id="close-modal" style="position:absolute; top:30px; right:40px; color:#fff; font-size:2.5rem; cursor:pointer; font-weight:bold;">&times;</span>
+            <img id="modal-img" src="" alt="zoom" style="max-width:90vw; max-height:80vh; border-radius:18px; box-shadow:0 2px 16px rgba(0,0,0,0.3); display:block; margin:auto;">
         </div>
+
+        <div class="property-extra-detail">
+            <h2>การใช้แต้ม CreditDown ใช้อย่างไร?</h2>
+            <h3>รายละเอียด CreditDown</h3>
+            <p>1. การสะสมแต้ม 10% จากค่าเช่า</p>
+            <ul>
+                <li>ทุกเดือนที่ผู้เช่าจ่ายค่าเช่าบ้าน ระบบจะให้แต้มสะสมเท่ากับ 10% ของยอดค่าเช่า</li>
+                <li>แต้มจะถูกเก็บในบัญชีผู้ใช้ (คล้ายแอปสะสมแต้ม)</li>
+                <li>ตัวอย่าง: ค่าเช่า 10,000 บาท → ได้ 1,000 แต้ม</li>
+            </ul>
+            <p>2. วิธีใช้แต้ม CreditDown</p>
+            <p> &nbsp; 2.1 ลดดอกเบี้ยบ้านเมื่อซื้อจริง</p>
+            <ul>
+                <li>หากผู้เช่าตัดสินใจ “ซื้อบ้านหลังที่เช่า” ผ่านโครงการ</li>
+                <li>แต้มที่สะสมสามารถใช้แลก ส่วนลดดอกเบี้ย ในปีแรกหรือปีแรก ๆ ของการผ่อนชำระ
+  เช่น : สะสมครบ 10,000 แต้ม → ลดดอกเบี้ย 0.25% ใน 1 ปีแรก 
+  ดอกเบี้ยปกติในปีที่ 1 คือ 3.35% ต่อปี ลด 0.25% เหลือดอกเบี้ย 3.10% ต่อปี</li>
+            </ul>
+            <p> &nbsp; 2.2 ใช้ลดเงินดาวน์บางส่วน</p>
+            <ul>
+                <li>เช่น ทุกๆ 1 แต้ม → ใช้ลดเงินดาวน์ 1 บาท</li>
+                <li>ต้องเช่าครบ 2 ปีขึ้นไป และทำเรื่องซื้อผ่านแพลตฟอร์มเดียวกัน</li>
+                <br>
+            <button type="button" class="login-btn" onclick="showMore()" style="margin-left:-20px;">เรียนรู้เพิ่มเติม</button>
+        </div>
+
+       <div class="property-extra-detail" id="more-package">
+            <h2>แพ็กเกจเพิ่มเติม</h2>
+            <h3>รายละเอียด แพ็กเกจ ทำบุญขึ้นบ้านใหม่</h3>
+            <ul>
+                <li>เป็นแพ็กเกจเสริมพิเศษสำหรับผู้ที่เช่าหรือซื้อบ้านมือสองในโครงการของเรา</li>
+                <li>ในวันแรกที่เข้าอยู่ จะมีการ “ทำบุญบ้าน” เพื่อเสริมความเป็นสิริมงคลให้บ้าน และสร้างความสบายใจให้กับผู้อยู่อาศัย</li>
+                <li>มีบริการเชิญพระสงฆ์มาทำบุญบ้าน มีพิธีสวดมนต์เบื้องต้น / ถวายสังฆทาน / ประพรมน้ำมนต์ในวันเข้าอยู่</li>
+                <li>เพื่อลดความรู้สึกไม่มั่นใจเมื่อต้องอยู่บ้านที่เคยถูกปล่อยร้างหรือถูกยึด</li>
+            </ul>
+            <br>
+            <button type="button" class="login-btn" onclick="showMore()" style="margin-left:-2px;">เรียนรู้เพิ่มเติม</button>
+        </div>
+<!--       <div class="property-extra-detail">
+            <h2>ถ้าจะซื้อทรัพย์นี้ จะต้องผ่อนเดือนละเท่าไหร่?</h2>
+            <h3>คำนวณเงินดาวน์และสินเชื่อ</h3>
+            <form id="loan-calc-form" style="margin-top:1rem;">
+                <div style="margin-bottom:0.7rem;">
+                    <label>ราคาทรัพย์ (บาท): <input type="number" id="price" value="2395000" required></label>
+                </div>
+                <div style="margin-bottom:0.7rem;">
+                    <label>เงินดาวน์ (บาท): <input type="number" id="down" value="239500" required></label>
+                </div>
+                <div style="margin-bottom:0.7rem;">
+                    <label>อัตราดอกเบี้ย (% ต่อปี): <input type="number" id="rate" value="3.5" step="0.01" required></label>
+                </div>
+                <div style="margin-bottom:0.7rem;">
+                    <label>ระยะเวลาผ่อน (ปี): <input type="number" id="years" value="20" required></label>
+                </div>
+                <button type="button" class="login-btn" onclick="calcLoan()">คำนวณ</button>
+            </form>
+            <div id="loan-result" style="margin-top:1rem; font-weight:bold;"></div>
+        </div> --> 
     </main>
     <script>
         const images = [
+            'image/Home1-1.jpg',
             'image/12.jpg',
             'image/Train.png',
             'image/ECC.png'
@@ -167,6 +243,41 @@
         }
         function prevImage() { showImage(current - 1); }
         function nextImage() { showImage(current + 1); }
+
+        function calcLoan() {
+            const price = parseFloat(document.getElementById('price').value);
+            const down = parseFloat(document.getElementById('down').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('years').value);
+            const n = years * 12;
+            const loan = price - down;
+            // สูตรคำนวณค่างวดแบบเงินต้นคงที่ (Amortized Loan)
+            const pay = loan * rate * Math.pow(1 + rate, n) / (Math.pow(1 + rate, n) - 1);
+            document.getElementById('loan-result').innerText =
+                'ยอดผ่อนต่อเดือนประมาณ: ' + (pay ? pay.toLocaleString(undefined, {maximumFractionDigits:2}) : 0) + ' บาท';
+        }
+
+// ฟังก์ชันซูมรูปภาพ
+document.getElementById('slider-img').onclick = function() {
+    const modal = document.getElementById('img-modal');
+    const modalImg = document.getElementById('modal-img');
+    modalImg.src = this.src;
+    modal.style.display = 'flex';
+};
+// ปุ่มปิด
+document.getElementById('close-modal').onclick = function() {
+    document.getElementById('img-modal').style.display = 'none';
+};
+// ปิด modal เมื่อคลิกพื้นหลัง
+document.getElementById('img-modal').onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+};
     </script>
+
+        <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Bitflow Co.,Ltd. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>

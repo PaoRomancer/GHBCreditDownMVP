@@ -333,6 +333,16 @@
             font-weight: bold;
             color: #dc2626;
             margin-bottom: 0.5rem;
+            margin-top: 1.0rem;
+        }
+        
+
+        .property-price-2 {
+            font-size: 1.0rem;
+            font-weight: bold;
+            color: #ffa200;
+            margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .property-actions {
