@@ -439,6 +439,81 @@
                 filter: brightness(0.8);
             }
         }
+        @media (max-width: 600px) {
+            /* --- รูปภาพบ้านในทรัพย์แนะนำ --- */
+            .properties-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+            .property-card {
+                max-width: 98vw;
+                margin: 0 auto;
+                border-radius: 12px !important;
+                padding: 0.7rem !important;
+            }
+            .property-img-center {
+                margin: 0.5rem 0;
+            }
+            .property-img-rounded {
+                max-width: 98vw !important;
+                border-radius: 10px !important;
+                aspect-ratio: 16/10;
+                height: auto;
+            }
+            .property-content {
+                padding: 0.5rem !important;
+            }
+            .property-title, .property-details, .property-price, .property-price-2 {
+                font-size: 0.98rem !important;
+            }
+
+            /* --- FAQ Section --- */
+            .faq-section .container {
+                padding: 0 0.2rem !important;
+            }
+            .faq-question {
+                font-size: 1rem !important;
+                padding: 0.7rem 1rem !important;
+            }
+            .faq-answer {
+                font-size: 0.95rem !important;
+                padding: 0 1rem 1rem 1rem !important;
+            }
+
+            /* --- ช่องทางติดต่อ --- */
+            .contact-section .container {
+                padding: 0 0.2rem !important;
+            }
+            .contact-info-row {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 1.2rem !important;
+            }
+            .contact-info {
+                text-align: center !important;
+                width: 100% !important;
+                align-items: center !important;
+                display: flex !important;
+                flex-direction: column !important;
+                font-size: 1.05rem !important;
+            }
+            .contact-info div {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            .contact-map {
+                display: flex !important;
+                justify-content: center !important;
+                width: 100% !important;
+                margin-top: 1rem;
+            }
+            .contact-map iframe {
+                max-width: 98vw !important;
+                min-height: 140px !important;
+                height: 140px !important;
+                border-radius: 10px !important;
+            }
+        }
 
         /* Footer Styles */
         .footer {
@@ -571,9 +646,4 @@
                 margin-top: 1.5rem;
                 max-width: 100%;
             }
-        }
-
-        .contact-info a {
-            color: #dc2626;
-            text-decoration: underline;
         }
