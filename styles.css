@@ -435,7 +435,7 @@
                 height: 35vh;
             }
             .hero-bg-img {
-                background: url('image/Cover.png') center center/cover no-repeat;
+                background: url('image/Cover2.png') center center/cover no-repeat;
                 filter: brightness(0.8);
             }
         }
