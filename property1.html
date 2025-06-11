@@ -156,12 +156,18 @@
                 font-size: 0.95rem;
             }
             .login-btn {
-                width: 100%;
-                font-size: 1rem;
-                padding: 0.7rem 0;
-                display: block;
+                width: 100% !important;
+                display: block !important;
                 margin-left: 0 !important;
                 margin-right: 0 !important;
+                margin-top: 0.7rem !important;
+                box-sizing: border-box;
+                text-align: center;
+                justify-content: center !important;
+            }
+            .nav-container .login-btn {
+                margin: 0.7rem 0 0.7rem 0 !important;
+                width: 100% !important;
             }
             .property-info h2 {
                 font-size: 1.05rem;
@@ -188,6 +194,20 @@
             .footer .container {
                 padding: 0.7rem 0.2rem;
                 font-size: 0.95rem;
+            }
+            /* รูปบ้านเลื่อนลงจากขอบบน */
+            .property-detail-container {
+                margin-top: 9rem !important;
+            }
+            /* ปุ่มกลับหน้าหลักอยู่ขวาบน ไม่เต็มบล็อก */
+            .nav-container .login-btn {
+                width: auto !important;
+                display: inline-flex !important;
+                float: right !important;
+                margin: 0.7rem 0.5rem 0.7rem auto !important;
+                font-size: 1rem !important;
+                padding: 0.6rem 1.2rem !important;
+                box-shadow: none !important;
             }
         }
     </style>
