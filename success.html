@@ -31,6 +31,7 @@
             justify-content: center;
             margin-bottom: 2rem;
             box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            position: relative;
         }
         .checkmark svg {
             width: 60px;
@@ -38,6 +39,18 @@
             stroke: #fff;
             stroke-width: 6;
             fill: none;
+            display: block;
+        }
+        /* Animation for the checkmark */
+        .checkmark-path {
+            stroke-dasharray: 36;
+            stroke-dashoffset: 36;
+            animation: dash 0.7s ease forwards 0.2s;
+        }
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
         }
         .success-message {
             font-size: 1.5rem;
@@ -74,12 +87,13 @@
         <div class="checkmark">
             <svg viewBox="0 0 52 52">
                 <circle cx="26" cy="26" r="25" fill="none"/>
-                <path d="M14 27l7 7 17-17"/>
+                <path class="checkmark-path" d="M14 27l7 7 17-17"/>
             </svg>
         </div>
         <div class="success-message">ยืนยันการเช่าทรัพย์สำเร็จ!</div>
-        <div class="desc">ขอบคุณที่ใช้บริการ กรุณารอเจ้าหน้าที่ติดต่อกลับเพื่อดำเนินการขั้นตอนถัดไป</div>
+        <div class="desc">ขอบคุณที่ใช้บริการ กรุณารอเจ้าหน้าที่ติดต่อกลับทางอีเมลเพื่อดำเนินการขั้นตอนถัดไป</div>
         <a href="Creditdownhome.html" class="back-btn">กลับหน้าหลัก</a>
+        <a href="mailto:support@ghbcreditdown.com" class="back-btn" style="margin-top:1rem; background:#2563eb;">ติดต่อเจ้าหน้าที่</a>
     </div>
 </body>
 </html>

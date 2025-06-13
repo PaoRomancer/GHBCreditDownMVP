@@ -221,6 +221,72 @@
                 box-shadow: none !important;
             }
         }
+
+        /* Modal ยืนยันเงื่อนไข */
+        #confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 10001;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.35);
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Thai', 'Anuphan', 'Mali', sans-serif;
+}
+#confirm-modal .login-btn {
+    font-family: inherit;
+    display: flex;
+    justify-content: center; /* เพิ่มบรรทัดนี้ให้ข้อความอยู่ตรงกลาง */
+    align-items: center;
+}
+#confirm-modal > div {
+    background: #fff;
+    border-radius: 18px;
+    max-width: 370px;
+    width: 92vw;
+    padding: 2rem 1.2rem 1.5rem 1.2rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    text-align: center;
+    position: relative;
+    font-family: inherit;
+    animation: modalPop 0.18s cubic-bezier(.4,1.6,.6,1) 1;
+}
+@keyframes modalPop {
+    0% { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+#confirm-modal h2 {
+    color: #dc2626;
+    margin-bottom: 1rem;
+    font-family: inherit;
+}
+#confirm-modal ul {
+    text-align: left;
+    color: #333;
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    font-family: inherit;
+    padding-left: 1.2em;
+}
+#confirm-modal label {
+    font-size: 1.05rem;
+    font-family: inherit;
+}
+#confirm-modal input[type="checkbox"] {
+    accent-color: #dc2626;
+    width: 1.1em;
+    height: 1.1em;
+}
+#close-confirm-modal {
+    margin-top: 1.1rem;
+    background: none;
+    border: none;
+    color: #dc2626;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: inherit;
+}
     </style>
 </head>
 <body>
@@ -276,7 +342,7 @@
                     </label>
                 </div>
                 <!-- ปุ่มเช่าทรัพย์แยกออกมาอยู่ล่างสุด -->
-                <button class="login-btn" style="width:fit-content; margin-top:1rem; display:flex; align-items:center; gap:0.5rem;" onclick="window.location.href='success.html'">
+                <button class="login-btn" id="open-confirm-modal" style="width:fit-content; margin-top:1rem; display:flex; align-items:center; gap:0.5rem;">
                     <svg width="22" height="22" viewBox="0 0 22 22" style="vertical-align:middle;">
                         <circle cx="11" cy="11" r="11" fill="#22c55e"/>
                         <polyline points="6,12 10,16 16,7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -412,5 +478,52 @@ document.getElementById('img-modal').onclick = function(e) {
             <p>&copy; 2025 Bitflow Co.,Ltd. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Modal ยืนยันเงื่อนไข -->
+    <div id="confirm-modal" style="display:none; position:fixed; z-index:10001; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35); justify-content:center; align-items:center;">
+        <div style="background:#fff; border-radius:18px; max-width:370px; width:92vw; padding:2rem 1.2rem 1.5rem 1.2rem; box-shadow:0 2px 16px rgba(0,0,0,0.15); text-align:center; position:relative;">
+            <h2 style="color:#dc2626; margin-bottom:1rem;">ยืนยันการเช่าทรัพย์</h2>
+            <ul style="text-align:left; color:#333; font-size:1.05rem; margin-bottom:1.2rem;">
+                <li>ฉันได้อ่านรายละเอียดทรัพย์สินและเข้าใจข้อมูลทั้งหมดแล้ว</li>
+                <li>ฉันยอมรับเงื่อนไขการเช่าและข้อตกลงของโครงการ</li>
+                <li>เมื่อกดยืนยัน จะไม่สามารถย้อนกลับได้</li>
+            </ul>
+            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.2rem; justify-content:left;">
+                <input type="checkbox" id="accept-terms" />
+                <label for="accept-terms" style="font-size:1.05rem;">ฉันยอมรับเงื่อนไขข้างต้น</label>
+            </div>
+            <button class="login-btn" id="confirm-rent-btn" disabled style="width:100%; font-size:1.1rem;">ยืนยันและเช่าทรัพย์</button>
+            <button id="close-confirm-modal" style="margin-top:1.1rem; background:none; border:none; color:#dc2626; font-size:1rem; cursor:pointer;">ยกเลิก</button>
+        </div>
+    </div>
+
+    <script>
+// Modal ยืนยันเช่าทรัพย์
+const openModalBtn = document.getElementById('open-confirm-modal');
+const confirmModal = document.getElementById('confirm-modal');
+const closeModalBtn = document.getElementById('close-confirm-modal');
+const acceptTerms = document.getElementById('accept-terms');
+const confirmRentBtn = document.getElementById('confirm-rent-btn');
+
+openModalBtn.onclick = function() {
+    confirmModal.style.display = 'flex';
+    acceptTerms.checked = false;
+    confirmRentBtn.disabled = true;
+};
+closeModalBtn.onclick = function() {
+    confirmModal.style.display = 'none';
+};
+acceptTerms.onchange = function() {
+    confirmRentBtn.disabled = !this.checked;
+};
+confirmRentBtn.onclick = function() {
+    window.location.href = 'success.html';
+};
+
+// ปิด modal เมื่อคลิกพื้นหลัง
+confirmModal.onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+};
+    </script>
 </body>
 </html>
