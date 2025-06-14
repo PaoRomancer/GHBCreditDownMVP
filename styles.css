@@ -53,7 +53,7 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2rem; /* เดิม 2rem เพิ่มเป็น 2.8rem หรือมากกว่านี้ได้ */
         }
 
         .nav-menu li a {
@@ -438,6 +438,20 @@
                 background: url('image/Cover2.png') center center/cover no-repeat;
                 filter: brightness(0.8);
             }
+            .nav-menu {
+                padding: 1rem 0;
+            }
+            .nav-menu li {
+                margin-bottom: 0rem; /* เพิ่มระยะห่างแต่ละเมนู */
+            }
+            .nav-menu li:last-child {
+                margin-bottom: 0;
+            }
+            .nav-menu li a {
+                padding: 0.7rem 1.2rem;
+                font-size: 1.1rem;
+                display: block;
+            }
         }
         @media (max-width: 600px) {
             /* --- รูปภาพบ้านในทรัพย์แนะนำ --- */
@@ -512,6 +526,29 @@
                 min-height: 140px !important;
                 height: 140px !important;
                 border-radius: 10px !important;
+            }
+        }
+        @media (max-width: 1024px) {
+            .contact-info-row {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .contact-info, .contact-map {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            .contact-info {
+                margin-bottom: 1.5rem;
+            }
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                gap: 0.5rem;
+            }
+            .nav-menu li {
+                flex: 1 1 45%;
+                min-width: 120px;
+                text-align: left;
             }
         }
 
