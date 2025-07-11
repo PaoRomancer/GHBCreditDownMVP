@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎡 วงล้อลุ้นรางวัล - โชคดีเจอกัน!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8e53 50%, #ffad33 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255,107,53,0.1), transparent);
+            animation: rotate 10s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+        
+        .title {
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #ff6b35, #ff8e53);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .wheel-container {
+            position: relative;
+            z-index: 1;
+            margin: 40px auto;
+            width: 350px;
+            height: 350px;
+        }
+        
+        .wheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255,107,53,0.5);
+            border: 5px solid #fff;
+            transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .wheel-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: 100% 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .wheel-segment:nth-child(1) {
+            background: linear-gradient(45deg, #ff6b35, #ff8e53);
+            transform: rotate(0deg);
+        }
+        
+        .wheel-segment:nth-child(2) {
+            background: linear-gradient(45deg, #ff8e53, #ffad33);
+            transform: rotate(72deg);
+        }
+        
+        .wheel-segment:nth-child(3) {
+            background: linear-gradient(45deg, #ffad33, #ff6b35);
+            transform: rotate(144deg);
+        }
+        
+        .wheel-segment:nth-child(4) {
+            background: linear-gradient(45deg, #ff6b35, #ff8e53);
+            transform: rotate(216deg);
+        }
+        
+        .wheel-segment:nth-child(5) {
+            background: linear-gradient(45deg, #ff8e53, #ffad33);
+            transform: rotate(288deg);
+        }
+        
+        .wheel-icon {
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        
+        .wheel-text {
+            font-size: 0.8em;
+            text-align: center;
+            line-height: 1.2;
+            padding: 0 10px;
+        }
+        
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid #ff6b35;
+            z-index: 15;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+        }
+        
+        .spin-button {
+            background: linear-gradient(45deg, #ff6b35, #ff8e53);
+            border: none;
+            border-radius: 15px;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,53,0.4);
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .spin-button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.5);
+        }
+        
+        .spin-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .spin-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .spin-button:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .result-container {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            min-height: 100px;
+        }
+        
+        .result-card {
+            background: linear-gradient(145deg, #fff, #f8f8f8);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid #ff6b35;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .result-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .result-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 5px;
+        }
+        
+        .result-description {
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .no-prize {
+            background: linear-gradient(145deg, #f0f0f0, #e8e8e8);
+            border-left-color: #999;
+        }
+        
+        .no-prize .result-title {
+            color: #999;
+        }
+        
+        .stats {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b35;
+            border-radius: 50%;
+            animation: confetti-fall 3s linear infinite;
+        }
+        
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        .reset-btn {
+            background: linear-gradient(45deg, #666, #888);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(45deg, #777, #999);
+            transform: translateY(-2px);
+        }
+        
+        .spinning {
+            animation: spin-wheel 3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        }
+        
+        @keyframes spin-wheel {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(var(--spin-degrees)); }
+        }
+        
+        @media (max-width: 480px) {
+            .wheel-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .wheel-text {
+                font-size: 0.7em;
+            }
+            
+            .wheel-icon {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎡 วงล้อลุ้นรางวัล</h1>
+            <p class="subtitle">หมุนวงล้อเพื่อลุ้นรางวัลสุดพิเศษ!</p>
+        </div>
+        
+        <div class="wheel-container">
+            <div class="wheel-pointer"></div>
+            <div class="wheel" id="wheel">
+                <div class="wheel-segment">
+                    <div class="wheel-icon">🎫</div>
+                    <div class="wheel-text">ส่วนลด<br>50%</div>
+                </div>
+                <div class="wheel-segment">
+                    <div class="wheel-icon">🎬</div>
+                    <div class="wheel-text">บัตรชม<br>หนังฟรี</div>
+                </div>
+                <div class="wheel-segment">
+                    <div class="wheel-icon">🎨</div>
+                    <div class="wheel-text">อาร์ทอย<br>พิเศษ</div>
+                </div>
+                <div class="wheel-segment">
+                    <div class="wheel-icon">🏷️</div>
+                    <div class="wheel-text">ส่วนลด<br>20%</div>
+                </div>
+                <div class="wheel-segment">
+                    <div class="wheel-icon">😅</div>
+                    <div class="wheel-text">ไม่ได้<br>รางวัล</div>
+                </div>
+            </div>
+            <div class="wheel-center">🎯</div>
+        </div>
+        
+        <button class="spin-button" id="spinBtn">
+            🎡 หมุนวงล้อ!
+        </button>
+        
+        <div class="result-container" id="resultContainer">
+            <!-- ผลลัพธ์จะแสดงที่นี่ -->
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalPlays">0</div>
+                <div class="stat-label">ครั้งที่เล่น</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="totalWins">0</div>
+                <div class="stat-label">ได้รางวัล</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="winRate">0%</div>
+                <div class="stat-label">อัตราชนะ</div>
+            </div>
+        </div>
+        
+        <button class="reset-btn" onclick="resetStats()">รีเซ็ตสถิติ</button>
+    </div>
+
+    <script>
+        // ข้อมูลรางวัล (แต่ละส่วนของวงล้อ 72 องศา)
+        const prizes = [
+            {
+                name: "คูปองส่วนลด 50%",
+                icon: "🎫",
+                description: "ส่วนลด 50% สำหรับการซื้อสินค้าครั้งถัดไป",
+                probability: 15,
+                type: "prize",
+                angle: 36 // กึ่งกลางของส่วนแรก (0-72 องศา)
+            },
+            {
+                name: "บัตรชมหนังฟรี",
+                icon: "🎬",
+                description: "บัตรชมหนัง 1 ใบ ที่โรงภาพยนตร์ชั้นนำ",
+                probability: 10,
+                type: "prize",
+                angle: 108 // กึ่งกลางของส่วนที่สอง (72-144 องศา)
+            },
+            {
+                name: "อาร์ทอยสุดพิเศษ",
+                icon: "🎨",
+                description: "ของสะสมลิมิเต็ดอิดิชั่น หายากมาก!",
+                probability: 5,
+                type: "prize",
+                angle: 180 // กึ่งกลางของส่วนที่สาม (144-216 องศา)
+            },
+            {
+                name: "คูปองส่วนลด 20%",
+                icon: "🏷️",
+                description: "ส่วนลด 20% สำหรับสินค้าทุกชิ้น",
+                probability: 20,
+                type: "prize",
+                angle: 252 // กึ่งกลางของส่วนที่สี่ (216-288 องศา)
+            },
+            {
+                name: "ไม่ได้รางวัล",
+                icon: "😅",
+                description: "เสียใจด้วย ลองใหม่ในครั้งหน้านะ!",
+                probability: 50,
+                type: "no-prize",
+                angle: 324 // กึ่งกลางของส่วนที่ห้า (288-360 องศา)
+            }
+        ];
+
+        let totalPlays = parseInt(localStorage.getItem('totalPlays')) || 0;
+        let totalWins = parseInt(localStorage.getItem('totalWins')) || 0;
+        let isSpinning = false;
+        let currentRotation = 0;
+
+        // อัปเดตสถิติ
+        function updateStats() {
+            document.getElementById('totalPlays').textContent = totalPlays;
+            document.getElementById('totalWins').textContent = totalWins;
+            const winRate = totalPlays > 0 ? Math.round((totalWins / totalPlays) * 100) : 0;
+            document.getElementById('winRate').textContent = winRate + '%';
+        }
+
+        // สุ่มรางวัล
+        function getRandomPrize() {
+            const random = Math.random() * 100;
+            let cumulativeProbability = 0;
+            
+            for (let prize of prizes) {
+                cumulativeProbability += prize.probability;
+                if (random <= cumulativeProbability) {
+                    return prize;
+                }
+            }
+            
+            return prizes[prizes.length - 1]; // fallback
+        }
+
+        // แสดงผลลัพธ์
+        function showResult(prize) {
+            const resultContainer = document.getElementById('resultContainer');
+            const isWin = prize.type === 'prize';
+            
+            resultContainer.innerHTML = `
+                <div class="result-card ${isWin ? '' : 'no-prize'}">
+                    <div class="result-icon">${prize.icon}</div>
+                    <div class="result-title">${prize.name}</div>
+                    <div class="result-description">${prize.description}</div>
+                </div>
+            `;
+
+            // เพิ่มเอฟเฟกต์คอนเฟตตี้ถ้าได้รางวัล
+            if (isWin) {
+                createConfetti();
+            }
+        }
+
+        // สร้างเอฟเฟกต์คอนเฟตตี้
+        function createConfetti() {
+            const colors = ['#ff6b35', '#ff8e53', '#ffad33', '#fff'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        }
+
+        // รีเซ็ตสถิติ
+        function resetStats() {
+            totalPlays = 0;
+            totalWins = 0;
+            localStorage.setItem('totalPlays', totalPlays);
+            localStorage.setItem('totalWins', totalWins);
+            updateStats();
+            document.getElementById('resultContainer').innerHTML = '';
+        }
+
+        // หมุนวงล้อ
+        function spinWheel() {
+            if (isSpinning) return;
+            
+            isSpinning = true;
+            const btn = document.getElementById('spinBtn');
+            const wheel = document.getElementById('wheel');
+            
+            // ปิดการใช้งานปุ่ม
+            btn.disabled = true;
+            btn.textContent = '🎡 กำลังหมุน...';
+            
+            // สุ่มรางวัล
+            const selectedPrize = getRandomPrize();
+            
+            // คำนวณมุมที่ต้องหมุน
+            const spins = 5 + Math.random() * 5; // หมุน 5-10 รอบ
+            const finalAngle = selectedPrize.angle;
+            const totalRotation = (spins * 360) + (360 - finalAngle);
+            
+            // ตั้งค่า CSS variable สำหรับแอนิเมชัน
+            wheel.style.setProperty('--spin-degrees', totalRotation + 'deg');
+            
+            // เริ่มแอนิเมชัน
+            wheel.classList.add('spinning');
+            
+            // หลังจากแอนิเมชันเสร็จสิ้น
+            setTimeout(() => {
+                // อัปเดตสถิติ
+                totalPlays++;
+                if (selectedPrize.type === 'prize') {
+                    totalWins++;
+                }
+                
+                // บันทึกสถิติ
+                localStorage.setItem('totalPlays', totalPlays);
+                localStorage.setItem('totalWins', totalWins);
+                
+                // แสดงผลลัพธ์
+                showResult(selectedPrize);
+                updateStats();
+                
+                // รีเซ็ตวงล้อ
+                wheel.classList.remove('spinning');
+                currentRotation = totalRotation % 360;
+                wheel.style.transform = `rotate(${currentRotation}deg)`;
+                
+                // เปิดใช้งานปุ่มใหม่
+                btn.disabled = false;
+                btn.textContent = '🎡 หมุนวงล้อ!';
+                isSpinning = false;
+                
+            }, 3000);
+        }
+
+        // เหตุการณ์คลิกปุ่ม
+        document.getElementById('spinBtn').addEventListener('click', spinWheel);
+
+        // โหลดสถิติตอนเริ่มต้น
+        updateStats();
+    </script>
+</body>
+</html>
