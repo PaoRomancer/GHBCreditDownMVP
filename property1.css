@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -41,12 +41,12 @@
         }
 
         .login-btn {
-            font-family: inherit;
+            font-family: 'Anuphan', 'Mali', 'Noto Sans Thai', sans-serif;
             background: #dc2626;
             color: #fff;
             padding: 0.8rem 1.5rem;
             border: none;
-            border-radius: 888px;
+            border-radius: 88px;
             text-decoration: none;
             font-weight: 500;
             cursor: pointer;
@@ -54,12 +54,6 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-        }
-        #confirm-modal .login-btn {
-            font-family: inherit;
-            display: flex;
-            justify-content: center; /* เพิ่มบรรทัดนี้ให้ข้อความอยู่ตรงกลาง */
-            align-items: center;
         }
 
         .login-btn:hover {
@@ -324,6 +318,21 @@
             transition: all 0.3s ease;
             border: 2px solid #dc2626;
         }
+        
+        .furniture-tooltip.center {
+            position: absolute;
+            background: #fff;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            min-width: 250px;
+            max-width: 300px;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #dc2626;
+        }
 
         .furniture-tooltip.show {
             opacity: 1;
@@ -437,15 +446,14 @@
             height: 1.1em;
         }
 
-#close-confirm-modal {
-    margin-top: 1.1rem;
-    background: none;
-    border: none;
-    color: #dc2626;
-    font-size: 1rem;
-    cursor: pointer;
-    font-family: inherit;
-}
+        #close-confirm-modal {
+            margin-top: 1.1rem;
+            background: none;
+            border: none;
+            color: #dc2626;
+            font-size: 1rem;
+            cursor: pointer;
+        }
 
         #close-modal {
             position: absolute;
@@ -500,8 +508,13 @@
 
             .furniture-tooltip {
                 min-width: 200px;
-                max-width: 250px;
+                max-width: 280px;
                 padding: 0.8rem;
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                z-index: 1000;
             }
         }
 
@@ -538,9 +551,25 @@
             }
 
             .furniture-tooltip {
-                min-width: 180px;
-                max-width: 220px;
-                padding: 0.7rem;
+                min-width: 260px;
+                max-width: 90vw;
+                padding: 1rem;
                 font-size: 0.9rem;
+                position: fixed !important;
+                left: 50% !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                z-index: 1000;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .furniture-tooltip {
+                min-width: 240px;
+                max-width: 85vw;
+                padding: 0.8rem;
+                font-size: 0.85rem;
             }
         }
