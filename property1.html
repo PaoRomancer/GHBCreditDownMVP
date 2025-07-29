@@ -30,6 +30,10 @@
             flex-direction: column;
             align-items: center;
         }
+        .slider-img-wrapper {
+            position: relative;
+            display: inline-block;
+        }
         .slider-img {
             width: 350px;
             height: 250px;
@@ -37,6 +41,28 @@
             border-radius: 18px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.10);
             margin-bottom: 1rem;
+            cursor: zoom-in; /* เปลี่ยนเป็นแว่นขยาย */
+            transition: box-shadow 0.2s;
+        }
+        .slider-img-magnifier {
+            display: none;
+            position: absolute;
+            right: 18px; /* ขยับจากขอบขวา */
+            bottom: 18px; /* ขยับจากขอบล่าง */
+            left: auto;
+            top: auto;
+            transform: none;
+            pointer-events: none;
+            background: rgba(240,240,240,0.85); /* สีเทาขาวจางๆ */
+            border-radius: 50%;
+            padding: 7px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        }
+        .slider-img-wrapper:hover .slider-img-magnifier {
+            display: block;
+        }
+        .slider-img-wrapper:hover .slider-img {
+            box-shadow: 0 4px 16px rgba(34,166,153,0.18);
         }
         .slider-controls {
             display: flex;
@@ -301,7 +327,16 @@
     <main>
         <div class="property-detail-container">
             <div class="property-slider">
-                <img id="slider-img" class="slider-img" src="image/Home1-1.jpg" alt="บ้านตัวอย่าง">
+                <div class="slider-img-wrapper">
+                    <img id="slider-img" class="slider-img" src="image/Home1-1.jpg" alt="บ้านตัวอย่าง">
+                    <span class="slider-img-magnifier">
+                        <!-- SVG แว่นขยาย -->
+                        <svg width="38" height="38" viewBox="0 0 38 38">
+                            <circle cx="16" cy="16" r="12" stroke="#22a699" stroke-width="3" fill="none"/>
+                            <line x1="25" y1="25" x2="36" y2="36" stroke="#22a699" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
                 <div class="slider-controls">
                     <button onclick="prevImage()">&#8592;</button>
                     <button onclick="nextImage()">&#8594;</button>

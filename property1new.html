@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดทรัพย์</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="property1.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-img">GHB<br>Credit<br>Down</div>
+            </div>
+            <a href="Creditdownhome.html" class="login-btn">&larr; กลับหน้าหลัก</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="property-detail-container">
+            <div class="property-slider">
+                <div class="slider-img-wrapper">
+                    <img id="slider-img" class="slider-img" src="image/Home1-1.jpg" alt="บ้านตัวอย่าง">
+                    <span class="slider-img-magnifier">
+                        <svg width="38" height="38" viewBox="0 0 38 38">
+                            <circle cx="16" cy="16" r="12" stroke="#22a699" stroke-width="3" fill="none"/>
+                            <line x1="25" y1="25" x2="36" y2="36" stroke="#22a699" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </div>
+                <div class="slider-controls">
+                    <button onclick="prevImage()">&#8592;</button>
+                    <button onclick="nextImage()">&#8594;</button>
+                </div>
+            </div>
+            <div class="property-info">
+                <h2>เช่าบ้านเดี่ยว (ทุ่งครุ)</h2>
+                <ul class="property-info-list">
+                    <li><strong>ประเภท:</strong> บ้านเดี่ยว</li>
+                    <li><strong>รหัสทรัพย์:</strong> 1024102421</li>
+                    <li><strong>โครงการ:</strong> เช่าบ้านเดี่ยว (ทุ่งครุ)</li>
+                    <li><strong>ที่ตั้ง:</strong> เขตทุ่งครุ แขวงราษฎร์บูรณะ จังหวัดกรุงเทพมหานคร</li>
+                    <li><strong>ขนาด:</strong> 45 ตร.ว.</li>
+                    <li><strong>ราคา:</strong> 28,359.17 บาท/เดือน</li>
+                </ul>
+                <ul class="property-benefits">
+                    <li>รีโนเวทพร้อมอยู่ เข้าอยู่ได้ทันที</li>
+                    <li>ประกันการรีโนเวทเสียหาย 6 เดือน</li>
+                    <li>ฟรี! ค่าธรรมเนียมการโอนกรรมสิทธิ์เมื่อซื้อบ้านหลังนี้</li>
+                    <li>บริการช่วยเหลือฉุกเฉิน 24 ชั่วโมง (ระบบไฟฟ้า-ประปา)</li>
+                    <li>สิทธิ์สะสมแต้ม Credit Down ใช้ลดดอกเบี้ยหรือเงินดาวน์</li>
+                    <li>ตรวจสอบคุณภาพบ้านก่อนส่งมอบโดยวิศวกรมืออาชีพ</li>
+                </ul>
+                <a href="#more-package" style="color:#dc2626; text-decoration:underline; font-size:1.15rem; font-weight:bold; display:inline-block; margin-bottom:0.5rem;">
+                    แพ็กเกจแถมฟรี: ทำบุญขึ้นบ้านใหม่
+                </a>
+                <div class="package-options">
+                    <label>
+                        <input type="radio" name="package" value="standard" checked>
+                        <span>สนใจ</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="package" value="premium">
+                        <span>ไม่สนใจ</span>
+                    </label>
+                </div>
+                <button class="login-btn" id="open-confirm-modal" style="width:fit-content; margin-top:1rem;">
+                    <svg width="22" height="22" viewBox="0 0 22 22" style="vertical-align:middle;">
+                        <circle cx="11" cy="11" r="11" fill="#22c55e"/>
+                        <polyline points="6,12 10,16 16,7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    เช่าทรัพย์
+                </button>
+            </div>
+        </div>
+
+        <!-- แผนที่ที่ตั้งทรัพย์ -->
+        <div class="property-extra-detail" style="margin-top:0; margin-bottom:2rem;">
+            <h2>แผนที่ที่ตั้งทรัพย์</h2>
+            <div style="width:100%; max-width:900px; margin:auto;">
+                <iframe
+                    src="https://www.google.com/maps?q=13.6525,100.5072&hl=th&z=16&output=embed"
+                    width="100%" height="320" style="border:0; border-radius:16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Furniture Showcase Section -->
+        <div class="furniture-showcase">
+            <h2>เฟอร์นิเจอร์ในบ้าน - คลิกเพื่อดูรายละเอียด</h2>
+            <div class="furniture-room-container">
+                <img src="image/Property_Furniture.jpg?height=500&width=800" alt="ห้องนั่งเล่นพร้อมเฟอร์นิเจอร์" class="furniture-room-image">
+                
+                <!-- Furniture Hotspots -->
+                <div class="furniture-hotspot" style="top: 25%; left: 15%;" data-furniture="sofa">1</div>
+                <div class="furniture-hotspot" style="top: 35%; left: 45%;" data-furniture="table">2</div>
+                <div class="furniture-hotspot" style="top: 20%; left: 75%;" data-furniture="lamp">3</div>
+                <div class="furniture-hotspot" style="top: 60%; left: 25%;" data-furniture="chair">4</div>
+                <div class="furniture-hotspot" style="top: 70%; left: 65%;" data-furniture="cabinet">5</div>
+                <div class="furniture-hotspot" style="top: 45%; left: 80%;" data-furniture="plant">6</div>
+
+                <!-- Furniture Tooltips -->
+                <div id="tooltip-sofa" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>โซฟา 3 ที่นั่ง</h4>
+                    <p>โซฟาผ้าสีเทา นั่งสบาย เหมาะสำหรับห้องนั่งเล่น</p>
+                    <p><strong>วัสดุ:</strong> ผ้าโพลีเอสเตอร์</p>
+                    <p><strong>ขนาด:</strong> 200 x 85 x 80 ซม.</p>
+                    <p class="price">฿15,900</p>
+                </div>
+
+                <div id="tooltip-table" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>โต๊ะกลางไม้โอ๊ค</h4>
+                    <p>โต๊ะกลางไม้โอ๊คแท้ ดีไซน์โมเดิร์น</p>
+                    <p><strong>วัสดุ:</strong> ไม้โอ๊คแท้</p>
+                    <p><strong>ขนาด:</strong> 120 x 60 x 45 ซม.</p>
+                    <p class="price">฿8,500</p>
+                </div>
+
+                <div id="tooltip-lamp" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>โคมไฟตั้งพื้น</h4>
+                    <p>โคมไฟตั้งพื้นสไตล์สแกนดิเนเวียน</p>
+                    <p><strong>วัสดุ:</strong> โลหะและผ้า</p>
+                    <p><strong>ขนาด:</strong> สูง 150 ซม.</p>
+                    <p class="price">฿3,200</p>
+                </div>
+
+                <div id="tooltip-chair" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>เก้าอี้อาร์มแชร์</h4>
+                    <p>เก้าอี้อาร์มแชร์หนังแท้ สีน้ำตาล</p>
+                    <p><strong>วัสดุ:</strong> หนังแท้และไม้</p>
+                    <p><strong>ขนาด:</strong> 75 x 80 x 85 ซม.</p>
+                    <p class="price">฿12,900</p>
+                </div>
+
+                <div id="tooltip-cabinet" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>ตู้วางทีวี</h4>
+                    <p>ตู้วางทีวีไม้สน มีลิ้นชักเก็บของ</p>
+                    <p><strong>วัสดุ:</strong> ไม้สนและ MDF</p>
+                    <p><strong>ขนาด:</strong> 160 x 40 x 50 ซม.</p>
+                    <p class="price">฿6,800</p>
+                </div>
+
+                <div id="tooltip-plant" class="furniture-tooltip">
+                    <button class="close-btn">&times;</button>
+                    <h4>ต้นไผ่ในกระถาง</h4>
+                    <p>ต้นไผ่ประดิษฐ์ในกระถางเซรามิก</p>
+                    <p><strong>วัสดุ:</strong> ใบไผ่เทียมและกระถางเซรามิก</p>
+                    <p><strong>ขนาด:</strong> สูง 120 ซม.</p>
+                    <p class="price">฿1,800</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 1.5rem; color: #666;">
+                <p>💡 คลิกที่จุดสีแดงเพื่อดูรายละเอียดเฟอร์นิเจอร์แต่ละชิ้น</p>
+            </div>
+        </div>
+
+        <!-- รายละเอียด CreditDown -->
+        <div class="property-extra-detail">
+            <h2>การใช้แต้ม CreditDown ใช้อย่างไร?</h2>
+            <h3>รายละเอียด CreditDown</h3>
+            <p>1. การสะสมแต้ม 10% จากค่าเช่า</p>
+            <ul>
+                <li>ทุกเดือนที่ผู้เช่าจ่ายค่าเช่าบ้าน ระบบจะให้แต้มสะสมเท่ากับ 10% ของยอดค่าเช่า</li>
+                <li>แต้มจะถูกเก็บในบัญชีผู้ใช้ (คล้ายแอปสะสมแต้ม)</li>
+                <li>ตัวอย่าง: ค่าเช่า 10,000 บาท → ได้ 1,000 แต้ม</li>
+            </ul>
+            <p>2. วิธีใช้แต้ม CreditDown</p>
+            <p>&nbsp; 2.1 ลดดอกเบี้ยบ้านเมื่อซื้อจริง</p>
+            <ul>
+                <li>หากผู้เช่าตัดสินใจ "ซื้อบ้านหลังที่เช่า" ผ่านโครงการ</li>
+                <li>แต้มที่สะสมสามารถใช้แลก ส่วนลดดอกเบี้ย ในปีแรกหรือปีแรก ๆ ของการผ่อนชำระ เช่น : สะสมครบ 10,000 แต้ม → ลดดอกเบี้ย 0.25% ใน 1 ปีแรก ดอกเบี้ยปกติในปีที่ 1 คือ 3.35% ต่อปี ลด 0.25% เหลือดอกเบี้ย 3.10% ต่อปี</li>
+            </ul>
+            <p>&nbsp; 2.2 ใช้ลดเงินดาวน์บางส่วน</p>
+            <ul>
+                <li>เช่น ทุกๆ 1 แต้ม → ใช้ลดเงินดาวน์ 1 บาท</li>
+                <li>ต้องเช่าครบ 2 ปีขึ้นไป และทำเรื่องซื้อผ่านแพลตฟอร์มเดียวกัน</li>
+            </ul>
+            <br>
+            <button type="button" class="login-btn" onclick="showMore()">เรียนรู้เพิ่มเติม</button>
+        </div>
+
+        <div class="property-extra-detail" id="more-package">
+            <h2>แพ็กเกจเพิ่มเติม</h2>
+            <h3>รายละเอียด แพ็กเกจ ทำบุญขึ้นบ้านใหม่</h3>
+            <ul>
+                <li>เป็นแพ็กเกจเสริมพิเศษสำหรับผู้ที่เช่าหรือซื้อบ้านมือสองในโครงการของเรา</li>
+                <li>ในวันแรกที่เข้าอยู่ จะมีการ "ทำบุญบ้าน" เพื่อเสริมความเป็นสิริมงคลให้บ้าน และสร้างความสบายใจให้กับผู้อยู่อาศัย</li>
+                <li>มีบริการเชิญพระสงฆ์มาทำบุญบ้าน มีพิธีสวดมนต์เบื้องต้น / ถวายสังฆทาน / ประพรมน้ำมนต์ในวันเข้าอยู่</li>
+                <li>เพื่อลดความรู้สึกไม่มั่นใจเมื่อต้องอยู่บ้านที่เคยถูกปล่อยร้างหรือถูกยึด</li>
+            </ul>
+            <br>
+            <button type="button" class="login-btn" onclick="showMore()">เรียนรู้เพิ่มเติม</button>
+        </div>
+    </main>
+
+    <!-- Modal สำหรับซูมรูปภาพ -->
+    <div id="img-modal">
+        <span id="close-modal">&times;</span>
+        <img id="modal-img" src="/placeholder.svg" alt="zoom">
+    </div>
+
+    <!-- Modal ยืนยันเงื่อนไข -->
+    <div id="confirm-modal">
+        <div>
+            <h2>ยืนยันการเช่าทรัพย์</h2>
+            <ul>
+                <li>ฉันได้อ่านรายละเอียดทรัพย์สินและเข้าใจข้อมูลทั้งหมดแล้ว</li>
+                <li>ฉันยอมรับเงื่อนไขการเช่าและข้อตกลงของโครงการ</li>
+                <li>เมื่อกดยืนยัน จะไม่สามารถย้อนกลับได้</li>
+            </ul>
+            <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1.2rem; justify-content:left;">
+                <input type="checkbox" id="accept-terms" />
+                <label for="accept-terms">ฉันยอมรับเงื่อนไขข้างต้น</label>
+            </div>
+            <button class="login-btn" id="confirm-rent-btn" disabled style="width:100%; font-size:1.1rem;">ยืนยันและเช่าทรัพย์</button>
+            <button id="close-confirm-modal">ยกเลิก</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Bitflow Co.,Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    const images = [
+            'image/Home1-1.jpg',
+            'image/12.jpg',
+            'image/Train.png',
+            'image/ECC.png'
+        ];
+        let current = 0;
+        const sliderImg = document.getElementById('slider-img');
+        function showImage(idx) {
+            current = (idx + images.length) % images.length;
+            sliderImg.src = images[current];
+        }
+        function prevImage() { showImage(current - 1); }
+        function nextImage() { showImage(current + 1); }
+
+        function calcLoan() {
+            const price = parseFloat(document.getElementById('price').value);
+            const down = parseFloat(document.getElementById('down').value);
+            const rate = parseFloat(document.getElementById('rate').value) / 100 / 12;
+            const years = parseInt(document.getElementById('years').value);
+            const n = years * 12;
+            const loan = price - down;
+            // สูตรคำนวณค่างวดแบบเงินต้นคงที่ (Amortized Loan)
+            const pay = loan * rate * Math.pow(1 + rate, n) / (Math.pow(1 + rate, n) - 1);
+            document.getElementById('loan-result').innerText =
+                'ยอดผ่อนต่อเดือนประมาณ: ' + (pay ? pay.toLocaleString(undefined, {maximumFractionDigits:2}) : 0) + ' บาท';
+        }
+
+        // Image Zoom Modal
+        document.getElementById('slider-img').onclick = function() {
+            const modal = document.getElementById('img-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = this.src;
+            modal.style.display = 'flex';
+        };
+
+        document.getElementById('close-modal').onclick = function() {
+            document.getElementById('img-modal').style.display = 'none';
+        };
+
+        document.getElementById('img-modal').onclick = function(e) {
+            if (e.target === this) this.style.display = 'none';
+        };
+
+        // Furniture Hotspot Functionality
+        const hotspots = document.querySelectorAll('.furniture-hotspot');
+        let activeTooltip = null;
+
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const furnitureType = this.getAttribute('data-furniture');
+                const tooltip = document.getElementById(`tooltip-${furnitureType}`);
+                
+                // Hide any active tooltip
+                if (activeTooltip && activeTooltip !== tooltip) {
+                    activeTooltip.classList.remove('show');
+                }
+                
+                // Toggle current tooltip
+                if (tooltip.classList.contains('show')) {
+                    tooltip.classList.remove('show');
+                    activeTooltip = null;
+                } else {
+                    // Position tooltip
+                    const rect = this.getBoundingClientRect();
+                    const containerRect = this.parentElement.getBoundingClientRect();
+                    
+                    let left = rect.left - containerRect.left + 50;
+                    let top = rect.top - containerRect.top - 10;
+                    
+                    // Adjust position if tooltip goes off screen
+                    if (left + 250 > containerRect.width) {
+                        left = rect.left - containerRect.left - 250;
+                    }
+                    if (top < 0) {
+                        top = rect.top - containerRect.top + 50;
+                    }
+                    
+                    tooltip.style.left = left + 'px';
+                    tooltip.style.top = top + 'px';
+                    tooltip.classList.add('show');
+                    activeTooltip = tooltip;
+                }
+            });
+        });
+
+        // Close tooltip buttons
+        document.querySelectorAll('.furniture-tooltip .close-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.parentElement.classList.remove('show');
+                activeTooltip = null;
+            });
+        });
+
+        // Close tooltips when clicking outside
+        document.addEventListener('click', function() {
+            if (activeTooltip) {
+                activeTooltip.classList.remove('show');
+                activeTooltip = null;
+            }
+        });
+
+        // Prevent tooltip from closing when clicking inside it
+        document.querySelectorAll('.furniture-tooltip').forEach(tooltip => {
+            tooltip.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Rental Confirmation Modal
+        const openModalBtn = document.getElementById('open-confirm-modal');
+        const confirmModal = document.getElementById('confirm-modal');
+        const closeModalBtn = document.getElementById('close-confirm-modal');
+        const acceptTerms = document.getElementById('accept-terms');
+        const confirmRentBtn = document.getElementById('confirm-rent-btn');
+
+        openModalBtn.onclick = function() {
+            confirmModal.style.display = 'flex';
+            acceptTerms.checked = false;
+            confirmRentBtn.disabled = true;
+        };
+
+        closeModalBtn.onclick = function() {
+            confirmModal.style.display = 'none';
+        };
+
+        acceptTerms.onchange = function() {
+            confirmRentBtn.disabled = !this.checked;
+        };
+
+        confirmRentBtn.onclick = function() {
+            window.location.href = 'success.html';
+        };
+
+        confirmModal.onclick = function(e) {
+            if (e.target === this) this.style.display = 'none';
+        };
+
+        
+
+        // Show More Function
+        function showMore() {
+            alert('ฟีเจอร์นี้จะเปิดให้บริการเร็วๆ นี้');
+        }
+    </script>
+    
+
+    
+</body>
+</html>
