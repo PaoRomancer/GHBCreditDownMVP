@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personnel Directory</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-orange': '#FF6500', 
+                        'brand-blue': '#1E3E62',   
+                        'brand-dark': '#0B192C',   
+                    },
+                    fontFamily: {
+                        sans: ['Anuphan', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased">
+
+    <header class="mb-8">
+        <div class="h-2 w-full bg-gradient-to-r from-brand-orange to-yellow-400"></div>
+        <div class="container mx-auto px-4 py-6 border-b border-gray-200">
+            <h1 class="text-3xl font-bold text-brand-orange">
+                <span class="text-brand-blue">กลุ่มที่ 3</span> ทีมพัฒนาระบบ
+            </h1>
+            <p class="text-gray-500 text-sm mt-1">วิชา 68/2 MOBILE APPLICATION G28</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-12 max-w-5xl">
+        <div id="staff-container" class="space-y-6">
+            </div>
+    </main>
+
+    <script>
+
+        const dutiesText = "Designing and creating programs, integrating systems, training end-users, modifying source-code, writing system instructions, debugging and maintaining for transcript verification and validation department in REG.";
+
+        const staffData = [
+            {
+                name: "NATTHAWIT NOWANGHAN",
+                position: "Bechelor Degree of Engineering",
+                id: "67010328",
+                email: "67010328@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://cdn.discordapp.com/attachments/1028549291641417748/1461206761578041354/image.png?ex=6969b657&is=696864d7&hm=293560c570bffbc04ac2fb6b5229b09894751b6c297c2045ddf441fb0345971a" 
+            },
+            {
+                name: "THANATHON	PINYOMETAKUN",
+                position: "Bechelor Degree of Engineering",
+                id: "67010383",
+                email: "67010383@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://cdn.discordapp.com/attachments/1028549291641417748/1461208525660487864/image.png?ex=6969b7fc&is=6968667c&hm=10da66571d97b6b34c9e14d3341fc49c7c3d651161db4315398f062ca1714b56"
+            },
+            {
+                name: "PICHAPONG	TIDTHIAN",
+                position: "Bechelor Degree of Engineering",
+                id: "67010635",
+                email: "67010635@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://cdn.discordapp.com/attachments/1028549291641417748/1461208556320587970/image.png?ex=6969b803&is=69686683&hm=d6470287ca286ee0ff21790fb85757be80d489c0f69615e1e52d9de9ae13d856"
+            },
+            {
+                name: "PHIRAPHAT	BOONSODAKORN",
+                position: "Bechelor Degree of Engineering",
+                 id: "67010648",
+                email: "67010648@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://ui-avatars.com/api/?name=PB&background=FF6500&color=fff&size=200"
+            }
+            ,
+            {
+                name: "UNGSUCHAVAL	SAMITCHART​",
+                position: "Bechelor Degree of Engineering",
+                id: "67011036",
+                email: "67011036@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://cdn.discordapp.com/attachments/1028549291641417748/1461208587807363143/image.png?ex=6969b80b&is=6968668b&hm=52f5ceee4c98688ee0477a99c4db0758f6943460809c8d23cb73d194d5b4f4ef"
+            }
+            ,
+            {
+                name: "ARTHAKORN	NARARD",
+                position: "Bechelor Degree of Engineering",
+                id: "67011578",
+                email: "67011578@kmitl.ac.th",
+                duty: "Designing and creating",
+                image: "https://cdn.discordapp.com/attachments/1028549291641417748/1461208626998804703/image.png?ex=6969b814&is=69686694&hm=c8406d9200e85f23556d8c1d9c1c04d510e42017bfa07b1b25acf006bcbcde62"
+            }
+        ];
+
+        const container = document.getElementById('staff-container');
+
+        const renderStaff = () => {
+            let html = '';
+            staffData.forEach((staff, index) => {
+                const bgClass = index % 2 === 0 ? 'bg-gray-50' : 'bg-white';
+                
+                html += `
+                    <div class="flex flex-col md:flex-row border border-gray-300 rounded-sm overflow-hidden ${bgClass} shadow-sm">
+                        
+                        <div class="w-full md:w-48 flex-shrink-0 bg-gray-200 flex items-start justify-center pt-6 md:pt-6 border-b md:border-b-0 md:border-r border-gray-300">
+                            <img src="${staff.image}" alt="${staff.name}" class="w-32 h-40 object-cover border border-gray-400 shadow-sm">
+                        </div>
+
+                        <div class="flex-grow p-4">
+                            
+                            <div class="mb-3 border-b border-gray-200 pb-1">
+                                <span class="text-sm text-gray-400 font-light">ประวัติส่วนตัว</span>
+                            </div>
+
+                            <div class="grid grid-cols-[100px_1fr] md:grid-cols-[140px_1fr] gap-y-2 text-sm md:text-base">
+                                
+                                <div class="font-bold text-brand-dark">ชื่อ - สกุล</div>
+                                <div class="text-brand-blue font-semibold">${staff.name}</div>
+
+                                <div class="font-bold text-brand-dark">ตำแหน่ง</div>
+                                <div class="text-gray-700">${staff.position}</div>
+
+                                <div class="font-bold text-brand-dark">รหัสนักศึกษา</div>
+                                <div class="text-gray-700">${staff.id}</div>
+
+                                <div class="font-bold text-brand-dark">อีเมล์</div>
+                                <div class="text-brand-orange hover:underline cursor-pointer">${staff.email}</div>
+
+                                <div class="font-bold text-brand-dark self-start">หน้าที่หลัก</div>
+                                <div class="text-gray-600 text-sm leading-relaxed text-justify pr-2">
+                                    ${staff.duty}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        };
+
+        renderStaff();
+    </script>
+</body>
+</html>
